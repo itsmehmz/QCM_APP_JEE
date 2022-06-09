@@ -1,7 +1,7 @@
 import java.sql.Connection;
-	import java.sql.DriverManager;
-	import java.sql.ResultSet;
-	import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +21,8 @@ public class Question extends QCM {
 	    try {
 	      Class.forName("com.mysql.jdbc.Driver");
 	      connection = DriverManager.getConnection("jdbc:mysql://localhost/dbqcm", "root", "");
-	      // step 3 : create a SQL statement
 	      statement = connection.createStatement();
-	      // step 4 : execute SQL query
 	      resultSet = statement.executeQuery("SELECT * FROM question");
-	      // step 5 : process the result set
 	      while (resultSet.next()) {
               int id = resultSet.getInt(1);
               String lib = resultSet.getString(2);
@@ -38,7 +35,6 @@ public class Question extends QCM {
           }
 
 	    } catch (Exception exc) {
-	      // TODO: handle exception
 	      exc.printStackTrace();
 	    }
 	  }
